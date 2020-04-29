@@ -1,9 +1,7 @@
 package org.example.javaee.class01.jdbc;
 
-
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-
 
 public class DatabasePool {
 

@@ -20,13 +20,13 @@ public class StudentHomeworkjdbc {
 
         boolean fs=false;
         boolean fh=false;
-        //StudentHomework sh=new StudentHomework();
-        //Student s=new Student();
-        //Homework h=new Homework();
-        ApplicationContext ac=new ClassPathXmlApplicationContext("app-context.xml");
-        Student s=(Student)ac.getBean("student");
-        Homework h=(Homework)ac.getBean("homework");
-        StudentHomework sh=(StudentHomework)ac.getBean("studenthomework");
+        StudentHomework sh=new StudentHomework();
+        Student s=new Student();
+        Homework h=new Homework();
+        //ApplicationContext ac=new ClassPathXmlApplicationContext("app-context.xml");
+        //Student s=(Student)ac.getBean("student");
+        //Homework h=(Homework)ac.getBean("homework");
+        //StudentHomework sh=(StudentHomework)ac.getBean("studenthomework");
         try{
             Connection connection= DatabasePool.getHikariDataSource().getConnection();
             Statement statement=connection.createStatement();
@@ -99,4 +99,35 @@ public class StudentHomeworkjdbc {
         }
         return list;
     }
+    public static void addHomework(Homework h){
+        String insert_sql = "insert into school.s_homework (title,content,create_time,update_time) "
+                + "VALUES (?,?,?,?)";
+        try(Connection connection= DatabasePool.getHikariDataSource().getConnection()){
+            PreparedStatement stat = connection.prepareStatement(insert_sql);
+            stat.setString(1, h.getTitle());
+            stat.setString(2, h.getContent());
+            stat.setObject(3, h.getCreateTime());
+            stat.setObject(4, h.getUpdateTime());
+            int i = stat.executeUpdate();
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addStudent(Student s){
+
+        String insert_sql = "insert into school.s_student VALUES (?,?,?,?)";
+        try(Connection connection= DatabasePool.getHikariDataSource().getConnection()){
+            PreparedStatement stat = connection.prepareStatement(insert_sql);
+            stat.setLong(1, s.getId());
+            stat.setString(2, s.getName());
+            stat.setObject(3, s.getCreateTime());
+            stat.setObject(4, s.getUpdateTime());
+            int i = stat.executeUpdate();
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

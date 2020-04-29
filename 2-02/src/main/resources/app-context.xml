@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <bean id="homework" class="org.example.javaee.class01.model.Homework"></bean>
-    <bean id="student" class="org.example.javaee.class01.model.Student"></bean>
-    <bean id="studenthomework" class="org.example.javaee.class01.model.StudentHomework"></bean>
-    <bean id="addhomework" class="org.example.javaee.class01.jdbc.Homeworkjdbc"></bean>
-    <bean id="addstudent" class="org.example.javaee.class01.jdbc.Studentjdbc"></bean>
-    <bean id="addstudenthomework" class="org.example.javaee.class01.jdbc.StudentHomeworkjdbc"></bean>
-
+    <!-- 开启注解扫描-->
+    <!-- AOP 注解方式 ；定义Aspect -->
+    <!-- 激活组件扫描功能,在包"com.example.aop及其子包下面自动扫描通过注解配置的组件-->
+    <context:component-scan base-package="com.example.javaee.class01.aop"/>
+    <!-- 启动AspectJ支持   只对扫描过的bean有效-->
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+    <context:component-scan base-package="org.example.javaee.class01"/>
+    <!-- 视图解析对象-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!-- 开启springmvc框架注解的支持-->
+    <mvc:annotation-driven/>
 </beans>

@@ -1,6 +1,7 @@
-<%@ page import="com.java.code.model.StudentHomework" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.java.code.jdbc.StudentHomeworkjdbc" %><%--
+<%@ page import="org.example.javaee.class01.model.StudentHomework" %>
+<%@ page import="org.example.javaee.class01.jdbc.StudentHomeworkjdbc" %>
+<%--
   Created by IntelliJ IDEA.
   User: lenovo
   Date: 2020/3/12
@@ -25,7 +26,7 @@
     <%
         List<StudentHomework> list = (List<StudentHomework>) StudentHomeworkjdbc.selectAll();
         if(null==list||list.size()<=0){
-            out.println("None data.");
+            System.out.println("None data.");
         }else{
             for(StudentHomework sh:list){
     %>

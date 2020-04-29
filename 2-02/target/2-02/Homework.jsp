@@ -11,7 +11,7 @@
     <title>Add Homework</title>
 </head>
 <body>
-    <form action="addHomework" method="post">
+    <form action="AddHomework" method="post">
     <label> Title：</label>
     <input type="text" name="title" placeholder="输入title" />
     <label> Content：</label>

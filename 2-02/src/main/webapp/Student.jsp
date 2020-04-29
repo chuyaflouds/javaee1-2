@@ -11,7 +11,7 @@
     <title>Add Student</title>
 </head>
 <body>
-<form action="addStudent" method="post">
+<form action="AddStudent" method="post">
     <label> ID：</label>
     <input type="text" name="id" placeholder="输入id" />
     <label> Name：</label>

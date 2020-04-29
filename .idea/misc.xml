@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/2-01" />
     <file type="web" url="file://$PROJECT_DIR$/2-02" />
+    <file type="web" url="file://$PROJECT_DIR$/2-03" />
     <file type="web" url="file://$PROJECT_DIR$/core" />
     <file type="web" url="file://$PROJECT_DIR$/db" />
   </component>
@@ -12,6 +13,13 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/2-03/pom.xml" />
+        <option value="$PROJECT_DIR$/core/pom.xml" />
+        <option value="$PROJECT_DIR$/db/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">

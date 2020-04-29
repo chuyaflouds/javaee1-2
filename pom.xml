@@ -13,6 +13,9 @@
         <module>2-02</module>
         <module>core</module>
         <module>db</module>
+        <module>2-03</module>
+        <module>2-03</module>
+        <module>2-03</module>
     </modules>
 
     <dependencyManagement>

@@ -11,7 +11,7 @@
     <title>Add StudentHomework</title>
 </head>
 <body>
-<form action="addStudentHomework" method="post">
+<form action="AddStudentHomework" method="post">
     <label> Student ID：</label>
     <input type="text" name="student_id" placeholder="Student ID" />
     <label> Homework ID：</label>
