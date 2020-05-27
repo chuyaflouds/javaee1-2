@@ -14,7 +14,7 @@ import java.util.List;
 @Component
 public class jdbcaop {
 
-    @Pointcut("execution(public * org.example.javaee.class01.jdbc.*.*(..))")
+    @Pointcut("execution(public * org.example.javaee.class01.jdbc.BlogMapper.*(..))")
     public void jdbcLog(){}
 
     @Before("jdbcLog()")

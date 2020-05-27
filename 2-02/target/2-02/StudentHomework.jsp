@@ -1,6 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="org.example.javaee.class01.model.StudentHomework" %>
-<%@ page import="org.example.javaee.class01.jdbc.StudentHomeworkjdbc" %>
+<%@ page import="org.example.javaee.class01.jdbc.BlogMapper" %>
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
@@ -14,6 +14,7 @@
     <title>Student Homework</title>
 </head>
 <body>
+
 <table align="center" width="960" border="1" bgcolor="#ffebcd" cellpadding="1" cellspacing="1">
     <tr align="center" bgcolor="#cd5c5c" height="50">
         <td>ID</td>
@@ -24,7 +25,7 @@
         <td>创建时间</td>
     </tr>
     <%
-        List<StudentHomework> list = (List<StudentHomework>) StudentHomeworkjdbc.selectAll();
+        List<StudentHomework> list=(List<StudentHomework>)request.getAttribute("list");
         if(null==list||list.size()<=0){
             System.out.println("None data.");
         }else{
@@ -32,11 +33,11 @@
     %>
     <tr align="center" height="30">
         <td><%=sh.getId()%></td>
-        <td><%=sh.getStudentId()%></td>
-        <td><%=sh.getHomeworkId()%></td>
-        <td><%=sh.getHomeworkTitle()%></td>
-        <td><%=sh.getHomeworkContent()%></td>
-        <td><%=sh.getCreateTime()%></td>
+        <td><%=sh.getStudent_id()%></td>
+        <td><%=sh.getHomework_id()%></td>
+        <td><%=sh.getHomework_title()%></td>
+        <td><%=sh.getHomework_content()%></td>
+        <td><%=sh.getCreate_time()%></td>
 
     </tr>
     <%

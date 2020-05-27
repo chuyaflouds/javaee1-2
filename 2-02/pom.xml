@@ -23,12 +23,18 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.2</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>5.2.5.RELEASE</version>
         </dependency>
+
         <!-- aop aspect注解导包-->
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -49,11 +55,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>5.2.5.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>db</artifactId>
         </dependency>
 
         <dependency>

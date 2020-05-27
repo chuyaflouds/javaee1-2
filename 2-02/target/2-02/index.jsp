@@ -11,9 +11,10 @@
     <title>My Homework</title>
 </head>
 <body>
+
 <a href="/addStudentHomework.jsp" style="display:block;text-align:center">学生提交作业</a>
 <br>
-<a href="/StudentHomework.jsp" style="display:block;text-align:center">老师查询作业</a>
+<a href="list" style="display:block;text-align:center">老师查询作业</a>
 <br>
 <a href="/Homework.jsp" style="display:block;text-align:center">老师添加作业</a>
 <br>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.javaee.class01.jdbc.BlogMapper">
+    <select id="Student" parameterType="Long" resultType="int">
+        select count(*) from school.s_student where id=#{id}
+    </select>
+
+    <select id="Teacher" parameterType="Long" resultType="int">
+        select count(*) from school.s_teacher where id=#{id}
+    </select>
+
+    <select id="StudentHomeworkH" parameterType="Long" resultType="org.example.javaee.class01.model.Homework">
+        select * from school.s_homework where id=#{id}
+    </select>
+
+    <insert id="addStudentHomework" parameterType="org.example.javaee.class01.model.StudentHomework">
+        insert into school.s_student_homework (student_id,homework_id,homework_title
+        ,homework_content,create_time,update_time) VALUES (#{student_id},
+                                                           #{homework_id},
+                                                           #{homework_title},
+                                                           #{homework_content},
+                                                           now(),
+                                                           now())
+    </insert>
+
+    <select id="selectAll" resultType="org.example.javaee.class01.model.StudentHomework">
+        select * from school.s_student_homework
+    </select>
+
+    <insert id="addHomework" parameterType="org.example.javaee.class01.model.Homework">
+        insert into school.s_homework (title,content,create_time,update_time) VALUES (#{title},
+                                                                                      #{content},
+                                                                                      now(),
+                                                                                      now())
+    </insert>
+
+    <insert id="addStudent" parameterType="org.example.javaee.class01.model.Student">
+        insert into school.s_student VALUES (#{id},#{name},now(),now())
+    </insert>
+
+</mapper>
