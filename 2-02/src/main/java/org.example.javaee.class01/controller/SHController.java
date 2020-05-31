@@ -20,7 +20,7 @@ import java.io.InputStream;
 import java.util.List;
 @Controller
 public class SHController{
-
+    public Long sid;
     public BlogMapper BlogMapper;
     public SqlSession sqlSession;
 
@@ -36,6 +36,34 @@ public class SHController{
         BlogMapper=sqlSession.getMapper(BlogMapper.class);
     }
 
+    @RequestMapping(path="/Login")
+    public String Login(@RequestParam(value = "id")Long id,
+                              @RequestParam(value = "role")String role) {
+    int s=-1;
+    int t=-1;
+
+    if(role.equals("student")){
+        s=BlogMapper.Student(id);
+        sid=id;
+    }
+    else if(role.equals("teacher")){
+        t=BlogMapper.Teacher(id);
+    }
+    else{
+        System.out.println(role);
+    }
+    if(s==1&&t==-1){
+        return "StudentH";
+    }
+    else if(t==1&&s==-1){
+        return "TeacherH";
+    }
+    else{
+        return "fail";
+    }
+
+    }
+
     @RequestMapping(path="/AddHomework")
     public String AddHomework(@RequestParam(value = "title")String htitle,
                             @RequestParam(value = "content")String hcontent) {
@@ -43,25 +71,22 @@ public class SHController{
         Homework h = new Homework();
         h.setTitle(htitle);
         h.setContent(hcontent);
-//        Date date = new Date();
-//        h.setCreateTime(date);
-//        h.setUpdateTime(date);
         BlogMapper.addHomework(h);
-        this.sqlSession.commit();
-//        StudentHomeworkjdbc.addHomework(h);
+        sqlSession.commit();
         return "success";
     }
 
     @RequestMapping(path="/AddStudentHomework")
-    public String AddStudentHomework(@RequestParam(value = "student_id")Long studentid,
-                                   @RequestParam(value = "homework_id")Long homeworkid) {
-//        boolean fs=false;
-//        boolean fh=false;
-//        StudentHomework sh=new StudentHomework();
-//        Student s=new Student();
-//        Homework h=new Homework();
-//        h = this.BlogMapper.StudentHomeworkH(homeworkid);
-//        StudentHomeworkjdbc.addStudentHomework(studentid,homeworkid);
+    public String AddStudentHomework(@RequestParam(value = "homework_id")Long homeworkid) {
+
+        StudentHomework sh=new StudentHomework();
+        Homework h=BlogMapper.StudentHomeworkH(homeworkid);
+        sh.setStudent_id(sid);
+        sh.setHomework_id(h.getId());
+        sh.setHomework_title(h.getTitle());
+        sh.setHomework_content(h.getContent());
+        BlogMapper.addStudentHomework(sh);
+        sqlSession.commit();
         return "success";
     }
 
@@ -72,19 +97,14 @@ public class SHController{
         Student s= new Student();
         s.setId(studentid);
         s.setName(studentname);
-//        Date date = new Date();
-//        s.setCreateTime(date);
-//        s.setUpdateTime(date);
-//        StudentHomeworkjdbc.addStudent(s);
         BlogMapper.addStudent(s);
-        this.sqlSession.commit();
+        sqlSession.commit();
         return "success";
     }
 
     @RequestMapping(path="/list")
     public void StudentHomework(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<StudentHomework> list = BlogMapper.selectAll();
-//        List<StudentHomework> list = StudentHomeworkjdbc.selectAll();
         req.setAttribute("list",list);
         req.getRequestDispatcher("StudentHomework.jsp").forward(req,resp);
     }

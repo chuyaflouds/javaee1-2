@@ -8,17 +8,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>My Homework</title>
+    <title>学生作业管理系统</title>
 </head>
 <body>
+<form action="Login" method="post">
+    <p>作业管理系统:</p>
+    <div>
+        <label> ID：</label>
+        <input type="text" name="id" placeholder="ID" />
 
-<a href="/addStudentHomework.jsp" style="display:block;text-align:center">学生提交作业</a>
-<br>
-<a href="list" style="display:block;text-align:center">老师查询作业</a>
-<br>
-<a href="/Homework.jsp" style="display:block;text-align:center">老师添加作业</a>
-<br>
-<a href="/Student.jsp" style="display:block;text-align:center">老师添加学生</a>
+        <input type="radio" id="contactChoice1"
+               name="role" value="student" checked>
+        <label for="contactChoice1">学生</label>
 
+        <input type="radio" id="contactChoice2"
+               name="role" value="teacher">
+        <label for="contactChoice2">老师</label>
+    </div>
+    <div>
+        <br>
+        <button type="submit">登录</button>
+    </div>
+</form>
 </body>
 </html>
