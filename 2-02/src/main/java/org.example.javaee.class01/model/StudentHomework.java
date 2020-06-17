@@ -8,6 +8,8 @@ public class StudentHomework {
     private Long homework_id;
     private String homework_title;
     private String homework_content;
+    private String submit_content;
+    private String review_content;
     private Date create_time;
     private Date update_time;
 
@@ -50,6 +52,22 @@ public class StudentHomework {
 
     public void setHomework_content(String homework_content) {
         this.homework_content = homework_content;
+    }
+
+    public String getSubmit_content() {
+        return submit_content;
+    }
+
+    public void setSubmit_content(String submit_content) {
+        this.submit_content = submit_content;
+    }
+
+    public String getReview_content() {
+        return review_content;
+    }
+
+    public void setReview_content(String review_content) {
+        this.review_content = review_content;
     }
 
     public Date getCreate_time() {

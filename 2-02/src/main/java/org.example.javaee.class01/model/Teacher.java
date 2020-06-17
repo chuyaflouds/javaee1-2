@@ -1,8 +1,6 @@
 package org.example.javaee.class01.model;
 
-import java.util.Date;
-
-public class Student {
+public class Teacher {
     private Long id;
     private String name;
     private String password;

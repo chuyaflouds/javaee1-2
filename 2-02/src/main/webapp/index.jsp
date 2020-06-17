@@ -17,6 +17,9 @@
         <label> ID：</label>
         <input type="text" name="id" placeholder="ID" />
 
+        <label> Password：</label>
+        <input type="text" name="pw" placeholder="Password" />
+
         <input type="radio" id="contactChoice1"
                name="role" value="student" checked>
         <label for="contactChoice1">学生</label>
@@ -28,6 +31,10 @@
     <div>
         <br>
         <button type="submit">登录</button>
+    </div>
+    <div>
+        <br>
+        <button onclick="window.open('register.jsp')">注册</button>
     </div>
 </form>
 </body>

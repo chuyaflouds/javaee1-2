@@ -12,7 +12,9 @@
 </head>
 <body>
 
-<a href="/addStudentHomework.jsp" style="display:block;text-align:center">学生提交作业</a>
+<a href="homeworklist" style="display:block;text-align:center">学生提交作业</a>
+<br>
+<a href="mylist" style="display:block;text-align:center">学生更新作业</a>
 
 </body>
 </html>

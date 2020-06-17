@@ -14,15 +14,16 @@
     <title>Student Homework</title>
 </head>
 <body>
-
-<table align="center" width="960" border="1" bgcolor="#ffebcd" cellpadding="1" cellspacing="1">
+<table  align="center" width="960" border="1" bgcolor="#ffebcd" cellpadding="1" cellspacing="1">
     <tr align="center" bgcolor="#cd5c5c" height="50">
         <td>ID</td>
         <td>学生学号</td>
         <td>作业编号</td>
         <td>作业标题</td>
         <td>作业内容</td>
-        <td>创建时间</td>
+        <td>学生答案</td>
+        <td>提交时间</td>
+        <td>批改</td>
     </tr>
     <%
         List<StudentHomework> list=(List<StudentHomework>)request.getAttribute("list");
@@ -37,14 +38,14 @@
         <td><%=sh.getHomework_id()%></td>
         <td><%=sh.getHomework_title()%></td>
         <td><%=sh.getHomework_content()%></td>
-        <td><%=sh.getCreate_time()%></td>
-
+        <td><%=sh.getSubmit_content()%></td>
+        <td><%=sh.getUpdate_time()%></td>
+        <td><a type="button" href="/GetSHid?id=<%=sh.getId()%>">批改</a></td>
     </tr>
     <%
             }
         }
     %>
-
 </table>
 </body>
 </html>

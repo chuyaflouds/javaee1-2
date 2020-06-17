@@ -12,8 +12,8 @@
 </head>
 <body>
 <form action="AddStudentHomework" method="post">
-    <label> Homework ID：</label>
-    <input type="text" name="homework_id" placeholder="Homework ID" />
+    <label> Your Answer：</label>
+    <input type="text" name="s_content" placeholder="Your Answer" />
     <input type="submit" value="确认"/>
 
 </form>

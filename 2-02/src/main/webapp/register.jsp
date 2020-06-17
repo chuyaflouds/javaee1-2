@@ -1,21 +1,25 @@
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
-  Date: 2020/3/5
-  Time: 9:00
+  Date: 2020/6/17
+  Time: 13:27
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>学生作业管理系统</title>
+    <title>Register</title>
 </head>
 <body>
-<form action="Login" method="post">
-    <p>作业管理系统:</p>
+<form action="Register" method="post">
+    <p>注册:</p>
     <div>
         <label> ID：</label>
         <input type="text" name="id" placeholder="ID" />
+
+        <label> Name：</label>
+
+        <input type="text" name="n" placeholder="Name" />
 
         <label> Password：</label>
         <input type="text" name="pw" placeholder="Password" />
@@ -30,11 +34,7 @@
     </div>
     <div>
         <br>
-        <button type="submit">登录</button>
-    </div>
-    <div>
-        <br>
-        <button onclick="window.open('register.jsp')">注册</button>
+        <button type="submit">确认</button>
     </div>
 </form>
 </body>
