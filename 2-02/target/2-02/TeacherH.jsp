@@ -12,11 +12,11 @@
 </head>
 <body>
 
-<a href="list" style="display:block;text-align:center">老师查询作业</a>
+<a href="list" style="display:block;text-align:center">批改作业</a>
 <br>
-<a href="/Homework.jsp" style="display:block;text-align:center">老师添加作业</a>
+<a href="/Homework.jsp" style="display:block;text-align:center">添加作业</a>
 <br>
-<a href="/Student.jsp" style="display:block;text-align:center">老师添加学生</a>
+<a href="/Student.jsp" style="display:block;text-align:center">添加学生</a>
 
 </body>
 </html>
